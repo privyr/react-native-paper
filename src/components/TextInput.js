@@ -37,6 +37,8 @@ type RenderProps = {
   onBlur: () => mixed,
   underlineColorAndroid: string,
   style: any,
+  labelStyle: any,
+  inputStyle: any,
   multiline?: boolean,
   numberOfLines?: number,
   value?: string,
@@ -388,6 +390,8 @@ class TextInput extends React.Component<Props, State> {
       selectionColor,
       underlineColor,
       style,
+      labelStyle: labelTextStyle,
+      inputStyle: textInputStyle,
       theme,
       render,
       multiline,
@@ -612,6 +616,7 @@ class TextInput extends React.Component<Props, State> {
                     outputRange: [hasActiveOutline ? 1 : 0, 0],
                   }),
                 },
+                labelTextStyle,
               ]}
               numberOfLines={1}
             >
@@ -628,6 +633,7 @@ class TextInput extends React.Component<Props, State> {
                   color: placeholderColor,
                   opacity: hasActiveOutline ? this.state.labeled : 1,
                 },
+                labelTextStyle,
               ]}
               numberOfLines={1}
             >
@@ -665,6 +671,7 @@ class TextInput extends React.Component<Props, State> {
               fontFamily,
               textAlignVertical: multiline ? 'top' : 'center',
             },
+            textInputStyle,
           ],
         })}
       </View>
