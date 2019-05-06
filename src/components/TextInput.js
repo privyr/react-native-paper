@@ -393,6 +393,7 @@ class TextInput extends React.Component<Props, State> {
       error,
       selectionColor,
       underlineColor,
+      underlineActiveColor,
       style,
       labelStyle: labelTextStyle,
       inputStyle: textInputStyle,
