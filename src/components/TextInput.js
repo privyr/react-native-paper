@@ -82,6 +82,10 @@ type Props = React.ElementConfig<typeof NativeTextInput> & {|
    */
   underlineColor?: string,
   /**
+   * Underline active color of the input.
+   */
+  underlineActiveColor?: string,
+  /**
    * Whether the input can have multiple lines.
    */
   multiline?: boolean,
@@ -567,7 +571,7 @@ class TextInput extends React.Component<Props, State> {
                 backgroundColor: error
                   ? colors.error
                   : this.state.focused
-                    ? activeColor
+                    ? underlineActiveColor || activeColor
                     : underlineColorCustom,
                 // Underlines is thinner when input is not focused
                 transform: [{ scaleY: this.state.focused ? 1 : 0.5 }],
