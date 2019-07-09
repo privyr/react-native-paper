@@ -394,6 +394,7 @@ class TextInput extends React.Component<Props, State> {
       selectionColor,
       underlineColor,
       underlineActiveColor,
+      placeholderTextColor,
       style,
       labelStyle: labelTextStyle,
       inputStyle: textInputStyle,
@@ -426,7 +427,11 @@ class TextInput extends React.Component<Props, State> {
     } else {
       inputTextColor = colors.text;
       activeColor = error ? colors.error : colors.primary;
-      placeholderColor = outlineColor = colors.placeholder;
+      if (mode === 'flat') {
+        placeholderColor = placeholderTextColor || colors.placeholder;
+      } else {
+        placeholderColor = outlineColor = colors.placeholder;
+      }
       underlineColorCustom = underlineColor || colors.disabled;
     }
 
